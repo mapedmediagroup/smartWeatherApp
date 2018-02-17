@@ -13,17 +13,23 @@ import CarbonKit
 class MainViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
     
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
+        
         guard let storyboard = storyboard else { return UIViewController() }
-        if index == 0 {
-            return storyboard.instantiateViewController(withIdentifier: "CurrentLocationViewController")
+        if InternetCheck.isConnectedToNetwork(){
+            if index == 0 {
+                return storyboard.instantiateViewController(withIdentifier: "CurrentLocationViewController")
+            }
+            return storyboard.instantiateViewController(withIdentifier: "CitiesViewController")
+        }else {
+            showMessage("No Internet")
+            return storyboard.instantiateViewController(withIdentifier: "CitiesViewController")
         }
-        return storyboard.instantiateViewController(withIdentifier: "CitiesViewController")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let tabSwipe = CarbonTabSwipeNavigation(items: ["Current location", "Cities"], delegate: self)
+        
+        let tabSwipe = CarbonTabSwipeNavigation(items: InternetCheck.isConnectedToNetwork() ? ["Current location", "Cities on devise"] : ["Cities on devise"], delegate: self)
         tabSwipe.setTabExtraWidth(40)
         tabSwipe.insert(intoRootViewController: self)
         

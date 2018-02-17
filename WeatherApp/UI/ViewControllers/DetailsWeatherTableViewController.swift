@@ -11,14 +11,15 @@ import UIKit
 class DetailsWeatherTableViewController: UITableViewController {
     
     var nameCity : String = ""
-    var citiesRequest = APIProvider()
+    var cityInfoForecast = [DayWeatherModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         addSaveButton()
         navigationItem.title = nameCity
-        citiesRequest.getForecastWeather(nameCity) {
+        APIProvider().getForecastWeather(nameCity) { cityForecast in
+            self.cityInfoForecast = cityForecast
             self.tableView.reloadData()
         }
         tableView.register(UINib(nibName: String(describing: WeatherCityTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: WeatherCityTableViewCell.self))
@@ -34,7 +35,6 @@ class DetailsWeatherTableViewController: UITableViewController {
             saveButton.addTarget(self, action: #selector(self.addSaveButton(_:)), for: .touchUpInside)
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
         }
-        
     }
     
     @IBAction func addSaveButton(_ sender: UIButton) {
@@ -47,14 +47,14 @@ class DetailsWeatherTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return citiesRequest.detailsWeather.count
+
+        return cityInfoForecast.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WeatherCityTableViewCell.self), for: indexPath) as! WeatherCityTableViewCell
-        cell.configure(isDaily: false, detail: citiesRequest.detailsWeather[indexPath.row])
+        cell.configure(isDaily: false, detail: cityInfoForecast[indexPath.row])
         return cell
     }
     
