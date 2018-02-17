@@ -13,7 +13,7 @@
 		0A08DC821FE03FA90052BF27 /* ForcastJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08DC811FE03FA90052BF27 /* ForcastJson.swift */; };
 		0A08DC841FE0422F0052BF27 /* GetWeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08DC831FE0422F0052BF27 /* GetWeatherForecast.swift */; };
 		0A21F1301FDF1D53005FED75 /* DetailsWeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21F12F1FDF1D53005FED75 /* DetailsWeatherTableViewController.swift */; };
-		0A5104592037159A000C88EB /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5104582037159A000C88EB /* CoreLocation.swift */; };
+		0A5104592037159A000C88EB /* CurrentLocationViewController + Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5104582037159A000C88EB /* CurrentLocationViewController + Location.swift */; };
 		0A51045C203719B4000C88EB /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51045B203719B4000C88EB /* APIProvider.swift */; };
 		0A51045E2037325D000C88EB /* UIViewController + Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A51045D2037325D000C88EB /* UIViewController + Loader.swift */; };
 		0A51046120373BB1000C88EB /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A51046020373BB1000C88EB /* style.json */; };
@@ -43,6 +43,7 @@
 		0AF6FC921FDF2F210089889B /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FC911FDF2F210089889B /* APIRequest.swift */; };
 		0AF6FC941FDF31170089889B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FC931FDF31170089889B /* Constants.swift */; };
 		0AF6FC961FDF32880089889B /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6FC951FDF32880089889B /* BaseRequest.swift */; };
+		0AFDC4E22038CD7D00B36FE8 /* DataTimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDC4E12038CD7D00B36FE8 /* DataTimeFormat.swift */; };
 		998670107E72231217DB62EE /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5E9D9F0890EEB0A34EA2AB /* Pods_WeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +54,7 @@
 		0A08DC811FE03FA90052BF27 /* ForcastJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastJson.swift; sourceTree = "<group>"; };
 		0A08DC831FE0422F0052BF27 /* GetWeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetWeatherForecast.swift; sourceTree = "<group>"; };
 		0A21F12F1FDF1D53005FED75 /* DetailsWeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWeatherTableViewController.swift; sourceTree = "<group>"; };
-		0A5104582037159A000C88EB /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
+		0A5104582037159A000C88EB /* CurrentLocationViewController + Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentLocationViewController + Location.swift"; sourceTree = "<group>"; };
 		0A51045B203719B4000C88EB /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		0A51045D2037325D000C88EB /* UIViewController + Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Loader.swift"; sourceTree = "<group>"; };
 		0A51046020373BB1000C88EB /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		0AF6FC911FDF2F210089889B /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		0AF6FC931FDF31170089889B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0AF6FC951FDF32880089889B /* BaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
+		0AFDC4E12038CD7D00B36FE8 /* DataTimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTimeFormat.swift; sourceTree = "<group>"; };
 		0B5E9D9F0890EEB0A34EA2AB /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B634849044E6B64C66BA8241 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		C0F894553E8401A211C09EEC /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,7 +107,7 @@
 		0ABCB22D1FE693A2009D9C03 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0A5104582037159A000C88EB /* CoreLocation.swift */,
+				0A5104582037159A000C88EB /* CurrentLocationViewController + Location.swift */,
 				0A51045D2037325D000C88EB /* UIViewController + Loader.swift */,
 			);
 			path = Extensions;
@@ -156,6 +158,7 @@
 				0AC3A46A1FDE9BBB0016A34A /* Models */,
 				0AC3A4641FDDB42E0016A34A /* CoreData */,
 				0AC3A4651FDDB43E0016A34A /* Network */,
+				0AFDC4E12038CD7D00B36FE8 /* DataTimeFormat.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				0A08DC821FE03FA90052BF27 /* ForcastJson.swift in Sources */,
 				0A51046320374E67000C88EB /* RoundedButton.swift in Sources */,
 				0AE46BCD1FDF44BD000EC351 /* City+CoreDataClass.swift in Sources */,
+				0AFDC4E22038CD7D00B36FE8 /* DataTimeFormat.swift in Sources */,
 				0AE46BC51FDF43F9000EC351 /* CitiesModel.xcdatamodeld in Sources */,
 				0AC3A4681FDE97BA0016A34A /* WeatherCityTableViewCell.swift in Sources */,
 				0AF6FC8E1FDF2EB30089889B /* JSONSerializer.swift in Sources */,
@@ -478,7 +482,7 @@
 				0A08DC801FDFEF840052BF27 /* DayWeatherModel.swift in Sources */,
 				0A51045E2037325D000C88EB /* UIViewController + Loader.swift in Sources */,
 				0AC3A44C1FDDAF680016A34A /* AppDelegate.swift in Sources */,
-				0A5104592037159A000C88EB /* CoreLocation.swift in Sources */,
+				0A5104592037159A000C88EB /* CurrentLocationViewController + Location.swift in Sources */,
 				0AF6FC921FDF2F210089889B /* APIRequest.swift in Sources */,
 				0AC3A46C1FDE9C340016A34A /* PlacemarkCity.swift in Sources */,
 				0AE46BCC1FDF44BD000EC351 /* City+CoreDataProperties.swift in Sources */,

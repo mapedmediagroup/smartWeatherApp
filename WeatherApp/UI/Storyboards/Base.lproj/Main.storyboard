@@ -126,6 +126,22 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLv-RN-IDz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljp-Ma-N0M">
+                                        <rect key="frame" x="187" y="333.5" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.087584234770000005" green="0.14722561840000001" blue="0.23440092800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Ljp-Ma-N0M" firstAttribute="centerX" secondItem="fLv-RN-IDz" secondAttribute="centerX" id="HaM-t5-1Hd"/>
+                                    <constraint firstItem="Ljp-Ma-N0M" firstAttribute="centerY" secondItem="fLv-RN-IDz" secondAttribute="centerY" id="YtV-yF-fB7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.091707415878772736" green="0.14721548557281494" blue="0.2343829870223999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -133,13 +149,18 @@
                             <constraint firstItem="KIN-L4-wMy" firstAttribute="leading" secondItem="zUB-f4-6ya" secondAttribute="leading" constant="10" id="7bw-5N-8hM"/>
                             <constraint firstItem="KIN-L4-wMy" firstAttribute="top" secondItem="VOM-5N-t3A" secondAttribute="bottom" constant="10" id="C2e-N2-cHN"/>
                             <constraint firstItem="zUB-f4-6ya" firstAttribute="trailing" secondItem="KIN-L4-wMy" secondAttribute="trailing" constant="10" id="Emg-75-ZU7"/>
+                            <constraint firstAttribute="bottom" secondItem="fLv-RN-IDz" secondAttribute="bottom" id="MYt-82-yh8"/>
+                            <constraint firstItem="fLv-RN-IDz" firstAttribute="leading" secondItem="4Oo-8M-xX1" secondAttribute="leading" id="OlP-cr-RBp"/>
+                            <constraint firstItem="zUB-f4-6ya" firstAttribute="trailing" secondItem="fLv-RN-IDz" secondAttribute="trailing" id="Rfa-5g-EjW"/>
                             <constraint firstItem="zUB-f4-6ya" firstAttribute="trailing" secondItem="Skt-pd-r3s" secondAttribute="trailing" id="Rou-2C-hEM"/>
                             <constraint firstItem="Bct-eR-vjp" firstAttribute="leading" secondItem="zUB-f4-6ya" secondAttribute="leading" constant="30" id="W6e-TJ-yIL"/>
                             <constraint firstItem="Skt-pd-r3s" firstAttribute="top" secondItem="4Oo-8M-xX1" secondAttribute="top" id="fGW-n0-q4q"/>
                             <constraint firstItem="zUB-f4-6ya" firstAttribute="trailing" secondItem="Bct-eR-vjp" secondAttribute="trailing" constant="30" id="hEQ-ZX-4Gu"/>
+                            <constraint firstItem="fLv-RN-IDz" firstAttribute="leading" secondItem="zUB-f4-6ya" secondAttribute="leading" id="iR1-WM-ufk"/>
                             <constraint firstItem="Skt-pd-r3s" firstAttribute="leading" secondItem="zUB-f4-6ya" secondAttribute="leading" id="lBd-OE-bd4"/>
                             <constraint firstItem="kGW-J0-lqA" firstAttribute="top" secondItem="zUB-f4-6ya" secondAttribute="top" constant="20" id="lYk-Ne-o0e"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Bct-eR-vjp" secondAttribute="bottom" constant="20" id="mQB-Sl-DZe"/>
+                            <constraint firstItem="fLv-RN-IDz" firstAttribute="top" secondItem="4Oo-8M-xX1" secondAttribute="top" id="o6z-SA-0e3"/>
                             <constraint firstItem="VOM-5N-t3A" firstAttribute="centerX" secondItem="4Oo-8M-xX1" secondAttribute="centerX" id="oEk-xG-m2q"/>
                             <constraint firstItem="zUB-f4-6ya" firstAttribute="bottom" secondItem="Skt-pd-r3s" secondAttribute="bottom" id="plb-2Z-VJS"/>
                             <constraint firstItem="VOM-5N-t3A" firstAttribute="top" secondItem="kGW-J0-lqA" secondAttribute="bottom" constant="5" id="rnj-uD-5kU"/>
@@ -148,7 +169,9 @@
                     </view>
                     <connections>
                         <outlet property="currentCityLabel" destination="KIN-L4-wMy" id="fuY-cV-kbT"/>
+                        <outlet property="firstView" destination="fLv-RN-IDz" id="YkR-OJ-K7I"/>
                         <outlet property="mapView" destination="Skt-pd-r3s" id="N5A-TN-Ko1"/>
+                        <outlet property="messageLabel" destination="Ljp-Ma-N0M" id="qQ8-yr-zCJ"/>
                         <outlet property="tempImageView" destination="kGW-J0-lqA" id="oJU-lH-jox"/>
                         <outlet property="tempLabel" destination="VOM-5N-t3A" id="6pm-bp-HFZ"/>
                     </connections>
@@ -260,7 +283,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="ebi-eZ-Ltb" kind="push" id="CMm-d2-8ta"/>
+                                    <action selector="SearchButtonPressed:" destination="lA0-k9-Vyl" eventType="touchUpInside" id="2ri-vb-1zY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -279,6 +302,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="aGa-TR-ih8" id="D5J-f3-sDR"/>
+                        <segue destination="ebi-eZ-Ltb" kind="push" identifier="searchSeque" id="Su2-KB-hN2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hva-qd-NF5" userLabel="First Responder" sceneMemberID="firstResponder"/>

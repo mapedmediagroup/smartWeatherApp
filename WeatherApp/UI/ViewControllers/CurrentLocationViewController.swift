@@ -17,14 +17,44 @@ class CurrentLocationViewController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var currentCityLabel: UILabel!
     @IBOutlet fileprivate weak var mapView: GMSMapView!
-    
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var messageLabel: UILabel!
     
     let locationManager = CLLocationManager()
+    var timer: Timer? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Curent city"
+        
         setupLocationManager()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if timer == nil {
+            startTimer()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        stopTimer()
+    }
+    
+    func startTimer () {
+        if firstView.isHidden {
+            if timer == nil {
+                timer =  Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+            }
+        }
+    }
+    
+    func stopTimer() {
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
     }
     
     func setMap(city: PlacemarkCity) {
@@ -53,24 +83,32 @@ class CurrentLocationViewController: UIViewController {
     
     @IBAction func showDetailInfoButtonPressed(_ sender: Any) {
         
-        let selectedItem = self.currentCityLabel.text
-        let viewController = DetailsWeatherTableViewController()
-        viewController.nameCity = selectedItem!
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-extension CurrentLocationViewController: GMSMapViewDelegate{
-    /* handles Info Window tap */
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        print("didTapInfoWindowOf")
+        if InternetCheck.isConnectedToNetwork() {
+            let selectedItem = self.currentCityLabel.text
+            let viewController = DetailsWeatherTableViewController()
+            viewController.nameCity = selectedItem!
+            navigationController?.pushViewController(viewController, animated: true)
+        }else {
+            stopTimer()
+            showMessage("No Internet")
+        }
     }
     
-    /* handles Info Window long press */
-    func mapView(_ mapView: GMSMapView, didLongPressInfoWindowOf marker: GMSMarker) {
-        print("didLongPressInfoWindowOf")
+    @objc func update() {
+        
+        if InternetCheck.isConnectedToNetwork() {
+            
+            APIProvider().getCityInfo(city: self.currentCityLabel.text!) { (city) in
+                if self.tempLabel.text != "\(String(format:"%.0f", city.temp!)) º" {
+                    self.tempLabel.text = "\(String(format:"%.0f", city.temp!)) º"
+                }
+                if self.tempImageView.restorationIdentifier != city.icon {
+                    self.tempImageView.image = UIImage(named: city.icon!)
+                }
+            }
+        }else {
+            stopTimer()
+            showMessage("No Internet")
+        }
     }
-    
-    /* set a custom Info Window */
-   
 }

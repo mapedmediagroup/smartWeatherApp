@@ -38,10 +38,12 @@ extension CurrentLocationViewController : CLLocationManagerDelegate {
         getCityStringFromLocation(location: currentLocation) { currentCity in
             self.setMap(city: currentCity)
             APIProvider().getCityInfo(city: currentCity.city, completion: { (cityInfo) in
-                
+                self.startTimer()
                 self.tempImageView.image = UIImage(named: cityInfo.icon!)
                 self.currentCityLabel.text = cityInfo.name!
                 self.tempLabel.text = "\(String(format:"%.0f", cityInfo.temp!)) º"
+                self.firstView.isHidden = true
+                self.messageLabel.isHidden = true
                 self.hideLoader()
             })
         }
@@ -68,11 +70,12 @@ extension CurrentLocationViewController : CLLocationManagerDelegate {
         }
     }
     
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
-        print("error:: \(error)")
-        //        showAlertMessage(title: "ERROR", message: "Нou have some problems with location ")
+        self.hideLoader()
+        stopTimer()
+        self.showMessage("ERROR: \(error)")
+        self.messageLabel.text = "You have some problem with location"
         locationManager.stopUpdatingLocation()
     }
 }
