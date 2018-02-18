@@ -10,7 +10,7 @@ import Foundation
 
 class DayWeatherModel {
     
-    var titleText: String = ""
+    var name: String = ""
     var imageName: String = ""
     var temperature: Double = 0.0
 }

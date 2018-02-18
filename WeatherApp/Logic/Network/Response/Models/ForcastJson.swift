@@ -22,7 +22,7 @@ class ForcastJson: JSONRepresentable {
                     let objectDetails = DayWeatherModel()
                     
                     if let date = index["dt_txt"] as? String {
-                        objectDetails.titleText = date
+                        objectDetails.name = date
                     }
                     
                     if let main = index["main"] {
@@ -39,7 +39,7 @@ class ForcastJson: JSONRepresentable {
             }
         }else {
             let objectDetails = DayWeatherModel()
-            objectDetails.titleText = "No information about this city"
+            objectDetails.name = "No information about this city"
             objectDetails.temperature = 0.0
             self.detailsWeather.append(objectDetails)
             

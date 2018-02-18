@@ -46,7 +46,7 @@ class WeatherCityTableViewCell: UITableViewCell{
     
     func configureIsForecast(_ detailWeather: DayWeatherModel) {
         
-        if let dateString = DataTimeFormat.getDay(detailWeather.titleText) {
+        if let dateString = DataTimeFormat.getDay(detailWeather.name) {
             self.titleLabel.text = dateString
         }
         self.temperatureLabel.text = "\(String(format:"%.0f", detailWeather.temperature)) º"

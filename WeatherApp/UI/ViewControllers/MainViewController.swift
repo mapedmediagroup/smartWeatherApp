@@ -30,6 +30,10 @@ class MainViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
         super.viewDidLoad()
         
         let tabSwipe = CarbonTabSwipeNavigation(items: InternetCheck.isConnectedToNetwork() ? ["Current location", "Cities on devise"] : ["Cities on devise"], delegate: self)
+        tabSwipe.setNormalColor(UIColor(hexString: "4B6FA6"))
+        tabSwipe.setSelectedColor(UIColor.white)
+        tabSwipe.setIndicatorColor(UIColor(hexString: "71E9CA"))
+        tabSwipe.carbonTabSwipeScrollView.backgroundColor = UIColor(hexString: "18263b")
         tabSwipe.setTabExtraWidth(40)
         tabSwipe.insert(intoRootViewController: self)
         

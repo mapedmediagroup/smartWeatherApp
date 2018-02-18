@@ -74,7 +74,7 @@ extension CurrentLocationViewController : CLLocationManagerDelegate {
         
         self.hideLoader()
         stopTimer()
-        self.showMessage("ERROR: \(error)")
+//        self.showMessage("ERROR: \(error)")
         self.messageLabel.text = "You have some problem with location"
         locationManager.stopUpdatingLocation()
     }
