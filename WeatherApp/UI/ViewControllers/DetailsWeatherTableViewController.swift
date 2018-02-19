@@ -25,6 +25,8 @@ class DetailsWeatherTableViewController: UITableViewController {
         tableView.register(UINib(nibName: String(describing: WeatherCityTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: WeatherCityTableViewCell.self))
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
+        tableView.separatorColor = UIColor(hexString: "18263b")
+        tableView.backgroundColor = UIColor(hexString: "18263b")
     }
     
     func addSaveButton() {
@@ -55,6 +57,7 @@ class DetailsWeatherTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: WeatherCityTableViewCell.self), for: indexPath) as! WeatherCityTableViewCell
         cell.configure(isDaily: false, detail: cityInfoForecast[indexPath.row])
+        
         return cell
     }
     

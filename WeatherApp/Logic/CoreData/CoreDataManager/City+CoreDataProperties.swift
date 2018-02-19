@@ -17,6 +17,4 @@ extension City {
     }
     
     @NSManaged public var name: String?
-    @NSManaged public var imageName: String?
-    @NSManaged public var temperature: Double
 }
