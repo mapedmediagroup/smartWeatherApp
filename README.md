@@ -2,20 +2,20 @@
 
 ## The task:
 
-Создать приложение — Сервис погоды
-необходимая информация по Api - http://openweathermap.org/api
+Create an application - Weather service required information on Api  - http://openweathermap.org/api
 
-	При старте, на пару секунд заставка, далее основной экран. На основном экране 2 вкладки: 1-я город который определен по геолокации, чуть ниже карта и меткой местоположения. 2-я вкладка со списком городов и краткой информацией. Переход между вкладками свайпом по горизонтали.
-	При клике на любой город, открывается окно с детальной информацией погоды по данному городу.
+	At the start, for a couple of seconds, the screen saver, then the main screen. There are 2 tabs on the main screen: 1st city which is determined by geolocation, just below the map and the location label. 2nd tab with a list of cities and brief information. Navigate between tabs with a horizontal swipe. 
+	When you click on any city, a window opens with detailed weather information for that city.
 	
 
-Требования :
-- приложение только для телефона
-- проверка интернет соединения и оповещение при его отсутствии
-- автоматическое обновление информации при появлении интернета
-- хранение информации локально при отсутствии интернета
-- дизайн — любой. 
+Requirements:
+- application for phone only
+- check Internet connection and alert when it is missing
+- automatic update of information when the Internet appears
+- storing information locally in the absence of the Internet
+- design - any.
 
+Api
 ## Screenshots: 
 
 <img width="428" alt="iphone 8 plus - 11 2 2018-02-18 21-38-36" src="https://user-images.githubusercontent.com/12659623/36356075-4e5e04d8-14f5-11e8-9977-959ef31cde0b.png">
